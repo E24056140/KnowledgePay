@@ -1,7 +1,8 @@
 # 智付寶KnowledgePay
 
 **產品網址:** [http://knowledgepay.tk:443/](http://knowledgepay.tk:443/)  
-(可直接連入產品頁面，利用綠界測試信用卡進行購買操作)  
+  
+可直接連入產品頁面，利用綠界測試信用卡進行購買操作  
 測試帳號 : ecpay 測試密碼 : ecpay123456789  
 
 **影片介紹 :**  
