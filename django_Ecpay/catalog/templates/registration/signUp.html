@@ -1,0 +1,22 @@
+{% extends 'base_Argon.html' %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-edit"></i></i></a></li>
+<li class="breadcrumb-item"><a href="#">註冊</a></li>
+{% endblock %}
+
+{% block sidebarsignUp %}active{% endblock %}
+
+{% block content %}
+
+<h3>註冊</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+    <br />
+    <input class="btn btn-success" type="submit" value="送出" />
+</form>
+
+{% endblock  %}

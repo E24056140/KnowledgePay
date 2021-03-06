@@ -1,0 +1,47 @@
+{% extends "base_Argon.html" %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+<li class="breadcrumb-item"><a href="#">登入</a></li>
+{% endblock %}
+
+{% block sidebarlogin %}active{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+  <p>帳號或密碼錯誤，請重新嘗試</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p>請登入帳號</p>
+  {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+<div>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</div>
+<div>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</div>
+
+<div>
+  <input type="submit" value="登入" class="btn btn-primary" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</div>
+</form>
+<br>
+{# Assumes you setup the password_reset view in your URLconf #}
+<a href="{% url 'password_reset' %}">忘記密碼?</a> <br><br>
+<a href="{% url 'signUp' %}">立即註冊 智付寶</a>
+
+{% endblock %}

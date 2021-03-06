@@ -1,0 +1,46 @@
+{% extends "base_itemShow2.html" %}
+
+{% block item_image %}
+
+{% for image in item_images%}    
+   {% if image == "1.jpg" %}
+    <div class="carousel-item active">
+      <img src="/static/images/{{ item_id }}/{{ image }}" class="d-block w-100" alt="...">
+    </div>
+    {% else %}
+    <div class="carousel-item">
+      <img src="/static/images/{{ item_id }}/{{ image }}" class="d-block w-100" alt="...">
+    </div>
+    {% endif %}
+{% endfor%}
+{% endblock %}
+
+{% block itemName %}
+{{ item_name }}
+{% endblock %}
+
+{% block itemName2 %}
+{{ item_name }}
+{% endblock %}
+
+{% block itemUser %}
+{{ item_user }}
+{% endblock %}
+
+{% block itemPrice %}
+{{ item_price }}
+{% endblock %}
+
+{% block itemContent %}
+{% autoescape on %}
+    {{ item_content | linebreaksbr }}
+{% endautoescape %}
+{% endblock %}
+
+{% block itemName3 %}
+{{ item_name }}
+{% endblock %}
+
+{% block itemPrice2 %}
+{{ item_price }}
+{% endblock %}

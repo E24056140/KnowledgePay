@@ -1,0 +1,30 @@
+{% extends "base_Argon.html" %}
+
+{% block sidebarmyItem %}active{% endblock %}
+
+{% block content %}
+
+    {% if user.get_username == updateItem.item_user.get_username %}
+  <form method="post" action="">
+			<h2>
+            商品販售者 : <input name="item_user" class="form-control" value= {{ user.get_username }} type="text" required="required" readonly="value"> <br>
+            商品名稱 : <input name="item_name" class="form-control" value={{ updateItem.item_name }} type="text" required="required"> <br>
+			商品價格 : <input name="item_price" class="form-control" value={{ updateItem.item_price }} type="number" required="required"> <br>
+            商品介紹 : <textarea onkeyup="autogrow(this);" name="item_content" class="form-control" type="text" required="required">{{ updateItem.item_content }} </textarea><br>
+            {% if updateItem.item_watermark == True %}
+		        是否添加浮水印 : <input name="item_watermark" class="form-check-label" type="checkbox" value="True" checked=checked }} > <br>
+            {% else %}
+            是否添加浮水印 : <input name="item_watermark" class="form-check-label" type="checkbox" value="True" }} > <br>
+            {% endif %}<br>
+            {% comment %} 商品圖片 : <input name="item_image" class="form-control" value={{ item_image }} type="file" required="required"> <br>
+            商品檔案 : <input name="item_file" class="form-control" value="" type="file" required="required"> <br> {% endcomment %}
+            特店編號MerchantID : <input name="item_MerchantID" class="form-control" value={{ updateItem.item_MerchantID }} type="text" required="required"> <br>
+            HashKey : <input name="item_HashKey" class="form-control" value={{ updateItem.item_HashKey }} type="text" required="required"> <br>
+            HashIV : <input name="item_HashIV" class="form-control" value={{ updateItem.item_HashIV }} type="text" required="required"> <br>
+			</h2>
+			<br>
+			<button type="submmit" class="btn btn-primary">修改商品</button>
+            </form>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base_Argon.html" %}
+
+{% block sidebarmyItem %}active{% endblock %}
+
+{% block content %}
+
+<h3>是否確定刪除{{ deleteItem.item_name }}?</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-success" type="submit" value="確定" />
+    <a class="btn btn-warning" href="/catalog/myItem/?user_id={{user.id}}">取消</a>
+</form>
+
+{% endblock  %}

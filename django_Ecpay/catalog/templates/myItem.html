@@ -1,0 +1,59 @@
+{% extends "base_Argon.html" %}
+
+{% block sidebarmyItem %}active{% endblock %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-edit"></i></i></a></li>
+<li class="breadcrumb-item"><a href="#">我的商品</a></li>
+{% endblock %}
+
+{% block content %}
+            <!-- Light table -->
+        
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>商品名稱</th>
+                <th>商品編號</th>
+                <th>商品金額</th>
+                             
+                <th>商品販售網址</th>
+                <th>動作</th>
+              </tr>
+            </thead>
+            <tbody>
+          {% if user_id == user.id|slugify %}
+          {% for item in all_items%}
+              <tr>
+                <td><a href="/catalog/itemShow/?item_id={{item.item_id}}" target="_blank" class="btn btn-info">{{item.item_name}}</a></td>
+                <td>{{item.item_id}} </td>
+                <td>{{item.item_price}} 元 </td>
+                             
+                <td>
+                  <script type="text/javascript">
+                  function copy{{item.item_id}}Url2()
+                  {
+                  var Url2=document.getElementById("{{item.item_id}}biao1");
+                  Url2.select(); // 選擇物件
+                  document.execCommand("Copy"); // 執行瀏覽器複製命令
+                  alert("已複製{{item.item_name}}販售網址。");
+                  }
+                  </script>
+                  <input id="{{item.item_id}}biao1" value="http://knowledgepay.tk:443/catalog/itemShow/?item_id={{item.item_id}}">
+                  <input type="button" class="btn btn-success" onClick="copy{{item.item_id}}Url2()" value="複製" />
+                </td>
+                <td>
+                  <a href="/catalog/update/?item_id={{item.item_id}}" class="btn btn-info">修改</a>
+                  <a href="/catalog/delete/?item_id={{item.item_id}}" class="btn btn-danger">刪除</a>
+                </td>
+              </tr> 
+            
+            {% endfor %}
+            {% endif %} 
+        
+        </tbody>
+</table>
+  
+
+
+{% endblock %}

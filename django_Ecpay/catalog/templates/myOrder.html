@@ -1,0 +1,45 @@
+{% extends "base_Argon.html" %}
+{% block sidebarmyOrder %}active{% endblock %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-edit"></i></i></a></li>
+<li class="breadcrumb-item"><a href="#">我的訂單</a></li>
+{% endblock %}
+
+{% block content %}
+            <!-- Light table -->
+          
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>商品編號</th>
+                <th>交易編號</th>
+                <th>商品金額</th>
+                <th>購買人信箱</th>              
+                <th>付款日期</th>
+                <th>付款方式</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if user_id == user.id|slugify %} 
+              {% for order in all_orders %}  
+              
+              
+              <tr>
+                <td><a href="/catalog/orderDetail/?TradeNo={{order.TradeNo}}" class="btn btn-info">{{order.CustomField2}}</a></td>
+                <td>{{order.TradeNo}}</td>
+                <td>{{order.TradeAmt}}</td>
+                <td>{{order.CustomField1}}</td>        
+                <td>{{order.PaymentDate}}</td>
+                <td>{{order.PaymentType}}</td>              
+              </tr> 
+              
+              {% endfor %}
+              {% endif %}   
+             
+            </tbody>
+</table>
+  
+
+
+{% endblock %}

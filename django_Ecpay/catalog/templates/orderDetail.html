@@ -1,0 +1,82 @@
+{% extends "base_Argon.html" %}
+
+{% block sidebarmyOrder %}active{% endblock %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-edit"></i></i></a></li>
+<li class="breadcrumb-item"><a href="#">我的訂單</a></li>
+{% endblock %}
+
+{% block content %}
+    <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>    
+                <th>項目名稱</th>
+                <th>內容</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>商品編號</td>
+                <td>{{orderDetail.CustomField2}}</td>
+                </tr> 
+
+                <tr>
+                <td>購買人信箱</td>
+                <td>{{orderDetail.CustomField1}}</td>
+                </tr>
+                
+                <tr>
+                <td>綠界特店編號</td>
+                <td>{{orderDetail.MerchantID}}</td>
+                </tr>
+                
+                <tr>
+                <td>綠界特店交易編號</td>
+                <td>{{orderDetail.MerchantTradeNo}}</td>
+                </tr>
+                
+                <tr>
+                <td>付款時間</td>
+                <td>{{orderDetail.PaymentDate}}</td>
+                </tr>
+                
+                <tr>
+                <td>付款方式</td>
+                <td>{{orderDetail.PaymentType}}</td>
+                </tr>
+                
+                <tr>
+                <td>通路費</td>
+                <td>{{orderDetail.PaymentTypeChargeFee}}</td>
+                </tr>
+                
+                <tr>
+                <td>交易結果</td>
+                <td> {{orderDetail.RtnMsg}}</td>
+                </tr>
+                 
+                <tr>
+                <td>交易金額</td>
+                <td>{{orderDetail.TradeAmt}}</td>
+                </tr>
+                 
+                <tr>
+                <td>訂單成立日期 </td>
+                <td>{{orderDetail.TradeDate}}</td>
+                </tr>
+                 
+                <tr>
+                <td>綠界的交易編號</td>
+                <td>{{orderDetail.TradeNo}}</td>
+                </tr>
+                 
+                <tr>
+                <td>特店旗下店鋪分號</td>
+                <td>{{orderDetail.StoreID}}</td>
+                </tr>
+    
+            </tbody>
+</table>
+  
+{% endblock %}

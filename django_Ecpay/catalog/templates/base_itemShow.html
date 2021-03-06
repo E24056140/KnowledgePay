@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Fetchingly 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130903
+
+-->
+
+
+<head>
+
+<title></title>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+{% load static %}
+<script type="text/javascript" src="{% static 'jquery.slidertron-1.3.js' %}"></script>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" />
+<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'fonts.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">{% block itemName %}Fetchingly{% endblock %}</a></h1>
+		</div>
+		
+	</div>
+</div>
+
+		<!-- ****************************************************************************************************************** -->
+
+			<div id="slider">
+				<a href="#" class="button previous-button"><span class="icon icon-double-angle-left"></span></a>
+				<a href="#" class="button next-button"><span class="icon icon-double-angle-right"></span></a>
+				<div class="viewer">
+					<div class="reel">
+						<div class="slide">
+							<a class="link" href="#">Full story ...</a>
+							<img src="{% block item_image %}item_image{% endblock %}" alt="" />
+						</div>
+						{% comment %} <div class="slide">
+							<a class="link" href="#">Full story ...</a>
+							<img src="{% static 'images/2.jpg' %}" alt="" />
+						</div>
+						<div class="slide">
+							<a class="link" href="#">Full story ...</a>
+							<img src="{% static 'images/1.jpg' %}" alt="" />
+						</div> {% endcomment %}
+					</div>
+				</div>
+			</div>
+			
+			<script type="text/javascript">
+				$('#slider').slidertron({
+					viewerSelector: '.viewer',
+					reelSelector: '.viewer .reel',
+					slidesSelector: '.viewer .reel .slide',
+					advanceDelay: 3000,
+					speed: 'slow',
+					navPreviousSelector: '.previous-button',
+					navNextSelector: '.next-button',
+					slideLinkSelector: '.link'
+				});
+			</script>
+
+		<!-- ****************************************************************************************************************** -->
+
+
+<div id="wrapper">
+	<div id="page" class="container">
+		<div id="content">
+			<div class="title">
+				<h2>{% block itemName2 %}Welcome to our website{% endblock %}</h2>
+				<span class="byline">By{% block itemUser %}2000{% endblock %}</span> </div>
+			<p>Price:{% block itemPrice %}2000{% endblock %}</p>
+			<p>{% block itemContent %}content{% endblock %}</p>
+			<!--<a href="#" class="button">Purchase</a> --> </div> 
+		<div>
+		    <form method="post" action="http://127.0.0.1:8000/catalog/createOrder/">
+			<h2>
+            商品名稱 : <input name="item_name" class="form-label" value="{% block itemName3 %}itemName{% endblock %}" type="text" readonly="value"> <br>
+			商品價格 : <input name="item_price" class="form-label" value="{% block itemPrice2 %}itemPrice{% endblock %}" type="text" readonly="value"> <br>
+		    Email : <input name="customerEmail" class="form-control" type="email" required="required">   <br>
+			</h2>
+			<br>
+			<button type="submmit" class="btn btn-primary">Purchase</button>
+            </form>
+
+		</div>
+			<!--
+		<div id="sidebar">
+			<div id="stwo-col">
+				<div class="sbox1">
+					<h2>Etiam rhoncus</h2>
+					<ul class="style2">
+						<li class="icon icon-ok"><a href="#">Semper egetmi dolore</a></li>
+						<li class="icon icon-ok"><a href="#">Quam turpis feugiat</a></li>
+						<li class="icon icon-ok"><a href="#">Amet hendrerit lectus</a></li>
+						<li class="icon icon-ok"><a href="#">Consequat phasellus</a></li>
+						<li class="icon icon-ok"><a href="#">Amet turpis feugiat</a></li>
+					</ul>
+				</div>
+				<div class="sbox2">
+					<h2>Integer gravida</h2>
+					<ul class="style2">
+						<li class="icon icon-ok"><a href="#">Semper egetmi dolore</a></li>
+						<li class="icon icon-ok"><a href="#">Quam turpis feugiat</a></li>
+						<li class="icon icon-ok"><a href="#">Amet hendrerit lectus</a></li>
+						<li class="icon icon-ok"><a href="#">Consequat phasellus</a></li>
+						<li class="icon icon-ok"><a href="#">Amet turpis feugiat</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>-->
+	</div>
+	<!--
+	<div id="banner-wrapper">
+		<div id="banner" class="container">
+			<div class="box-left">
+				<h2>Mauris vulputate dolor nibh</h2>
+				<span>Donec leo, vivamus fermentum praesent urna congue rutrum</span> </div>
+			<div class="box-right"> <a href="#" class="button button-big">Etiam posuere</a></div>
+		</div>
+	</div>
+	<div id="featured-wrapper">
+		<div id="featured" class="container">
+			<div class="column1"> <span class="icon icon-gift"></span>
+				<div class="title">
+					<h2>Maecenas lectus sapien</h2>
+				</div>
+				<p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+			</div>
+			<div class="column2"> <span class="icon icon-glass"></span>
+				<div class="title">
+					<h2>Praesent scelerisque</h2>
+				</div>
+				<p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+			</div>
+			<div class="column3"> <span class="icon icon-music"></span>
+				<div class="title">
+					<h2>Fusce ultrices fringilla</h2>
+				</div>
+				<p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+			</div>
+			<div class="column4"> <span class="icon icon-group"></span>
+				<div class="title">
+					<h2>Etiam posuere augue</h2>
+				</div>
+				<p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+			</div>
+		</div>
+	</div>-->
+</div> 
+<div id="copyright" class="container">
+	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div> 
+</body>
+</html>

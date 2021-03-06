@@ -1,0 +1,28 @@
+{% extends "base_Argon.html" %}
+
+{% block sidebaraddItem %}active{% endblock %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-edit"></i></i></a></li>
+<li class="breadcrumb-item"><a href="#">新增商品</a></li>
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data" action="/catalog/addItemOK/">
+			<h2> 
+            商品販售者 : <input name="item_user" class="form-control" value= {{ user.get_username }} type="text" readonly="value" required="required"> <br>
+            商品名稱 : <input name="item_name" class="form-control" value="" type="text" required="required"> <br>
+			      商品價格 : <input name="item_price" class="form-control" value="" type="number" required="required"> <br>
+            商品介紹 : <textarea onkeyup="autogrow(this);" name="item_content" class="form-control" value="" type="text" required="required"> </textarea><br>
+		        是否添加浮水印 : <input name="item_watermark" class="form-check-label" type="checkbox" value="True" > <br><br>
+            商品圖片 : <input name="item_image" class="form-control" value="" required="required" type="file" multiple accept="image/jpg, image/jpeg"> <br>
+            商品檔案 : <input name="item_file" class="form-control  " value="" type="file" required="required" multiple> <br>
+            特店編號MerchantID : <input name="item_MerchantID" class="form-control" value="2000132" type="text" required="required"> <br>
+            HashKey : <input name="item_HashKey" class="form-control" value="5294y06JbISpM5x9" type="text" required="required"> <br>
+            HashIV : <input name="item_HashIV" class="form-control" value="v77hoKGq4kWxNNIS" type="text" required="required"> <br>
+			</h2>
+			<br>
+			<button type="submmit" class="btn btn-primary">新增商品</button>
+            </form>
+
+{% endblock %}

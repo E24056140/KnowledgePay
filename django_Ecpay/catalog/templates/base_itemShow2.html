@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+    body {
+  padding:50px; 
+   
+    }
+
+
+
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class="container text-center">
+
+    <table class='table align-self-center w-auto' style='margin-left: auto;margin-right: auto;font-size:1em'>
+                            <thead>
+                                <tr>
+                                    
+                                    <th scope='col'>
+                                    <img src="/static/assets/img/brand/blue4.png" class="d-block w-100" alt="...">
+                                    商品 :{% block itemName %}商品名稱{% endblock %}
+                                    </th>                            
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>                                
+                                    <td> 
+                                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                    {% block item_image %}
+                                    {% endblock %}
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                    </td>
+                                </tr>       
+
+                                <tr>
+                                    <th>商品名稱 : {% block itemName2 %}item_name{% endblock %}</th>
+                                </tr>      
+
+                                <tr>
+                                    <th>商品作者 : {% block itemUser %}item_user{% endblock %}</th>
+                                </tr> 
+
+                                 <tr>
+                                    <th>商品價格 : {% block itemPrice %}9999{% endblock %} 元</th>
+                                </tr>                         
+
+                                <tr>
+                                    <td><b>商品介紹 : </b><br><br><p style="font-size:0.8em">{% block itemContent %}這是一個很棒的商品!{% endblock %}</p></td>
+                                </tr>  
+
+                                <tr>
+                                    <th>商品購買</th>
+                                </tr>  
+
+                                <tr>
+                                <th>
+                                <form method="post" action="/catalog/createOrder/">
+			                       
+                                    商品名稱 : <input name="item_name" class="form-label" value="{% block itemName3 %}itemName{% endblock %}" type="text" readonly="value" style="background-color:#ebebeb"> <br>
+			                        商品價格 : <input name="item_price" class="form-label" value="{% block itemPrice2 %}itemPrice{% endblock %}元" type="text" readonly="value" style="background-color:#ebebeb"> <br>
+		                            Email : <input name="customerEmail" class="form-label" type="email" required="required" placeholder="請輸入您的Email"> <br>		                        
+			                        <button type="submmit" class="btn btn-primary">購買</button>
+                                    </form>
+                                </th>
+                                </tr> 
+                            </tbody>
+
+                            
+    </table>
+
+
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script>
+        function expandTextarea(id) {
+        document.getElementById(id).addEventListener('keyup', function() {
+        this.style.overflow = 'hidden';
+        this.style.height = 0;
+        this.style.height = this.scrollHeight + 'px';
+        }, false);
+        }
+        expandTextarea('txtarea');
+    </script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

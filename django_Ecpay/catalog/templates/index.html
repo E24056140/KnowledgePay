@@ -1,0 +1,144 @@
+{% extends "base_Argon.html" %}
+
+{% block sidebarindex %}active{% endblock %}
+
+{% block topName %}
+<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+<li class="breadcrumb-item"><a href="#">首頁</a></li>
+{% endblock %}
+{% block card %}
+<div class="row">
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">全平台註冊使用者</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ num_Users }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ num_Users }}</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">全平台商品數量</h5>
+                      <span class="h2 font-weight-bold mb-0"> {{ num_Items }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ num_Items }}</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">全平台售出數量</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ num_Orders }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ num_Orders }}</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+{% endblock %}
+{% block content %}
+
+
+  <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>商品名稱</th>
+                <th>商品金額</th>
+                             
+                <th>商品販售網址</th>
+              </tr>
+            </thead>
+            <tbody>
+          {% for item in all_items %}
+  
+          
+              <tr>
+                <td>{{item.item_name}}</td>
+                <td>{{item.item_price}} 元 </td>
+                            
+                <td>
+                  <a href="/catalog/itemShow/?item_id={{item.item_id}}" class="btn btn-info" target="_blank">前往</a>
+                  
+                </td>
+              </tr> 
+            
+            {% endfor %}
+        
+        </tbody>
+</table>
+    
+  <br><br>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/XkA8i0ChaLE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+  歡迎使用智付寶  <br>
+  可以輕鬆將您的知識變現!<br><br>
+  產品介紹:<br>
+  「智付寶」是一個自動化資訊型產品銷售系統，<br>
+  在這個人手一機的時代，<br>
+  人們對資訊型產品的需求越來越高，<br>
+  但盜版商品氾濫的情況也日益猖狂，<br>
+  智付寶致力於保障創作者的智慧財產權，<br>
+  創作者可以自由選擇是否自動以浮水印的方式為每份商品打上消費者的Email，<br>
+  以便產品外流時可以追蹤到流出的來源。<br>
+  創作者可以在平台上銷售音效、照片、電子書、影片、程式模板、影片模板、題庫、插圖、PPT模板等資訊型產品。<br>
+  顧客購買並付款後，<br>
+  平台會依創作者需求自動將產品打上購買者email的浮水印，<br>
+  並自動寄送給顧客，<br>
+  並將交易記錄供創作者查對，<br>
+  提供一個完整且便利的自動銷售系統。<br><br>
+  本系統有以下功能:<br><br>
+
+  1. 結合綠界金流API，支援多種付款放式<br>
+  2. 當消費者付款後，會自動將商品寄送到消費者的Email<br>
+  3. 可自由選擇是否自動加上浮水印，在商品外流時，可輕鬆抓獲外流者!<br>
+  4. 消費者不需註冊，僅須提供email，即可進行購買!<br><br>
+
+  請遵循以下步驟 :<br><br>
+
+  1. 新增商品<br>
+  2. 在我的商品中，複製商品網址，即可開始販售商品!<br>
+  3. 在我的訂單中，可查看已販售訂單明細<br><br>
+  
+  即可輕鬆開始!<br>
+  
+{% endblock %}
